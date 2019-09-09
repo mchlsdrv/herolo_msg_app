@@ -1,0 +1,11 @@
+{% extends "msg_app/app_theme.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <h4>New Message</h4>
+    <form method="POST">
+          {% csrf_token %}
+          {{ form|crispy }}
+          <br>
+          <button type="submit" class="btn btn_primary">Send</button>
+    </form>
+{% endblock %}

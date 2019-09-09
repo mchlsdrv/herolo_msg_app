@@ -1,0 +1,14 @@
+{% extends "msg_app/app_theme.html" %}
+{% block content %}
+    <form method="POST">
+          {% csrf_token %}
+          <fieldset class="form-group">
+          	<legend class="border-bottom mb-4">Delete Post</legend>
+          	<h2>Delete the "{{object.subject}}" message to {{object.receiver}}?</h2>
+          </fieldset>
+          <div class="form-group">
+          	<button type="submit" class="btn btn-outline-denger">Confirm</button>
+          	<a class="btn btn-outline-secondary" href="{% url 'msg_app:show_msg' object.id%}">Cancel</a>
+          </div>
+    </form>
+{% endblock %}

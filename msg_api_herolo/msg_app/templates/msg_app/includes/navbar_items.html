@@ -1,0 +1,10 @@
+{% if user.is_authenticated %}
+	<li><a href="/">My Messages</a></li>
+	<li><a href="{% url 'msg_app:unread' %}">My Unread Messages</a></li>
+	<li><a href="{% url 'msg_app:new_msg' %}">Compose</a></li>
+	<li>Logged in as : <strong>{{user.username|title}}</strong></li>
+	<li><a href="{% url 'users_app:logout_request' %}">Logout</a></li>
+{% else %}
+	<li><a href="{% url 'users_app:register_request' %}">Register</a></li>
+	<li><a href="{% url 'users_app:login_request' %}">Login</a></li>
+{% endif %}

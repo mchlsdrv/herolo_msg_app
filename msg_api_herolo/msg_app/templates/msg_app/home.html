@@ -1,0 +1,48 @@
+{% extends "msg_app/app_theme.html" %}
+{% block content %}
+	{% if user.is_authenticated %}
+		<table class="table mb-0">
+			<thead>
+				<tr>
+					<th>Subject</th>
+					<th>Sender</th>
+					<th>Receiver</th>
+					<th>Creation Date</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% if msgs %}
+					{% for msg in msgs %}
+						<tr>
+							{% if not msg.read %}
+								<td style="color: red">{{msg.subject}}</td>
+							{% else %}
+								<td style="color: green">{{msg.subject}}</td>
+							{% endif %}
+
+							<td>{{msg.sender}}</td>
+
+							<td>{{msg.receiver}}</td>
+
+							<td>{{msg.creation_date}}</td>
+
+							<td><a href="{% url 'msg_app:show_msg' msg.id %}" class="btn btn-primary btn-sm">Read</a></td>						
+							<td><a href="{% url 'msg_app:delete_msg' msg.id %}" class="btn btn-danger btn-sm">Delete</a></td>
+					{% endfor %}
+				{% endif %}
+			</tbody>
+		</table>
+		<p>
+			<a href="{% url 'msg_app:new_msg' %}" class="btn btn-primary">Compose</a>
+		</p>
+	{% else %}
+		<h4>You need to login first to view messages...</h4>
+		<br>
+		<br>
+		<br>
+		<div class="border-top" pt-3>
+			<small class="text-mutted"><a class="ml-2" href="{% url 'users_app:login_request' %}"><strong>Login</strong></a> or<a class="ml-2" href="{% url 'users_app:register_request' %}"><strong>Register</strong></a></small>
+		</div>
+	{% endif %}
+{% endblock %}
