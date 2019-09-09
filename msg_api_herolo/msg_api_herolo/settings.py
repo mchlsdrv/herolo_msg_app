@@ -20,11 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # should be placed inside an etc folder one directory before the base directory
-l1 = lambda s: s[::-1]
-l2 = lambda s: s[s.index('\\'):]
-key_dir = os.path.join(l1(l2(l1(BASE_DIR))), 'etc', 'msg_api_herolo_key.txt')
-with open(key_dir, 'r') as f:
-    SECRET_KEY = f.read().strip() #'x@ij2)7_coy-iy=5u=oi42hgf0me&7_w)#u0#7onhuk1k5edb3'
+#l1 = lambda s: s[::-1]
+#l2 = lambda s: s[s.index('\\'):]
+#key_dir = os.path.join(l1(l2(l1(BASE_DIR))), 'etc', 'msg_api_herolo_key.txt')
+#with open(key_dir, 'r') as f:
+#    SECRET_KEY = f.read().strip() #'x@ij2)7_coy-iy=5u=oi42hgf0me&7_w)#u0#7onhuk1k5edb3'
+SECRET_KEY = 'x@ij2)7_coy-iy=5u=oi42hgf0me&7_w)#u0#7onhuk1k5edb3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
