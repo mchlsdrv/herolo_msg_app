@@ -27,7 +27,7 @@ with open(key_dir, 'r') as f:
     SECRET_KEY = f.read().strip() #'x@ij2)7_coy-iy=5u=oi42hgf0me&7_w)#u0#7onhuk1k5edb3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
